@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lucid Logger</string>
+    <string name="alarm_channel_name">Wake alarms</string>
+    <string name="alarm_channel_description">Full-screen dream capture alarms</string>
+    <string name="morning_channel_name">Morning review</string>
+    <string name="morning_channel_description">Reminders to enrich last night\'s dreams</string>
+    <string name="alarm_notification_title">Lucid Logger alarm</string>
+    <string name="alarm_notification_text">Time to capture the dream before it fades.</string>
+    <string name="ring_open">Open</string>
+    <string name="ring_action">Record dream</string>
+</resources>

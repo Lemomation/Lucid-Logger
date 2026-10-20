@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <include domain="file" path="dreams/" />
+    <include domain="file" path="alarms.json" />
+    <exclude domain="file" path="recordings/" />
+    <exclude domain="cache" path="." />
+</full-backup-content>

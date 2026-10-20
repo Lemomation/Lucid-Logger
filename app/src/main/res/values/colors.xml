@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="nocturnal_canvas">#07090E</color>
+    <color name="nocturnal_surface">#0D111A</color>
+    <color name="nocturnal_surface_2">#131824</color>
+    <color name="nocturnal_amber">#F59E0B</color>
+    <color name="nocturnal_indigo">#6366F1</color>
+    <color name="nocturnal_pearl">#F1F5F9</color>
+</resources>

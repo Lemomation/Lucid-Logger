@@ -1,0 +1,398 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Settings &amp; Storage - Lucid Logger</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#ffb95f",
+            "on-error-container": "#ffdad6",
+            "primary-fixed": "#e1e0ff",
+            "primary-fixed-dim": "#c0c1ff",
+            "on-secondary": "#472a00",
+            "on-background": "#e2e2ea",
+            "surface-variant": "#33353b",
+            "on-tertiary": "#293042",
+            "on-tertiary-fixed-variant": "#3f4759",
+            "on-secondary-fixed-variant": "#653e00",
+            "primary": "#c0c1ff",
+            "surface-tint": "#c0c1ff",
+            "tertiary-fixed-dim": "#bfc6dd",
+            "inverse-surface": "#e2e2ea",
+            "on-secondary-container": "#5b3800",
+            "on-tertiary-container": "#22293b",
+            "on-surface-variant": "#c7c4d7",
+            "tertiary-container": "#8990a6",
+            "inverse-on-surface": "#2e3036",
+            "outline": "#908fa0",
+            "error": "#ffb4ab",
+            "on-primary-container": "#0d0096",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "outline-variant": "#464554",
+            "surface-container-highest": "#33353b",
+            "on-error": "#690005",
+            "secondary-fixed-dim": "#ffb95f",
+            "surface": "#111319",
+            "surface-container": "#1d2025",
+            "surface-container-lowest": "#0c0e13",
+            "tertiary": "#bfc6dd",
+            "on-primary": "#1000a9",
+            "secondary-fixed": "#ffddb8",
+            "surface-dim": "#111319",
+            "inverse-primary": "#494bd6",
+            "on-primary-fixed": "#07006c",
+            "error-container": "#93000a",
+            "tertiary-fixed": "#dbe2fa",
+            "on-tertiary-fixed": "#141b2c",
+            "background": "#111319",
+            "surface-bright": "#37393f",
+            "surface-container-low": "#191c21",
+            "on-secondary-fixed": "#2a1700",
+            "on-surface": "#e2e2ea",
+            "secondary-container": "#ee9800",
+            "primary-container": "#8083ff",
+            "surface-container-high": "#282a30"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin": "1.25rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "gutter": "1rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-lg-mobile": ["Geist"],
+            "headline-lg": ["Geist"],
+            "headline-md": ["Geist"],
+            "display-lg": ["Geist"],
+            "label-sm": ["Geist"],
+            "display-lg-mobile": ["Geist"],
+            "label-md": ["Geist"],
+            "body-sm": ["Inter"],
+            "title-lg": ["Geist"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "500" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.015em", "fontWeight": "300" }],
+            "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+            "title-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom low-luminance slider thumb styling */
+    input[type=range] {
+      -webkit-appearance: none;
+      background: transparent;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 22px;
+      width: 22px;
+      border-radius: 9999px;
+      background: #ffb95f;
+      box-shadow: 0 0 16px rgba(245, 158, 11, 0.45);
+      cursor: pointer;
+      margin-top: -8px;
+      border: 2px solid #111319;
+    }
+    input[type=range]::-moz-range-thumb {
+      height: 22px;
+      width: 22px;
+      border-radius: 9999px;
+      background: #ffb95f;
+      box-shadow: 0 0 16px rgba(245, 158, 11, 0.45);
+      cursor: pointer;
+      border: 2px solid #111319;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-secondary/30 selection:text-secondary min-h-screen pb-24 font-body-md text-body-md">
+<!-- Top App Bar (Shared Components JSON Anchor) -->
+<header class="sticky top-0 z-40 bg-surface dark:bg-surface border-b border-outline-variant/20 dark:border-outline-variant/20 flex justify-between items-center w-full px-5 py-3 h-14">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-primary text-[24px]">bedtime</span>
+<h1 class="text-title-lg font-title-lg text-on-surface dark:text-on-surface tracking-wide font-bold">Settings &amp; Storage</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary active:opacity-80 transition-all duration-200">
+<span class="material-symbols-outlined text-[22px]">mic</span>
+</button>
+</div>
+</header>
+<!-- Main Container -->
+<main class="max-w-md mx-auto px-margin pt-4 space-y-6">
+<!-- Section 1: Wake-Up & Anti-Lazy Dismissal Thresholds -->
+<section class="space-y-3">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span>
+<h2 class="font-label-md text-label-md text-secondary tracking-wider font-semibold">Alarm Dismissal</h2>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/[0.04] space-y-5">
+<!-- Voice Memo Length Slider -->
+<div class="space-y-2">
+<div class="flex justify-between items-baseline">
+<span class="font-body-md text-body-md text-on-surface font-medium">Enforce Min. Voice Memo Length</span>
+<span class="font-label-md text-label-md text-secondary bg-surface-container px-2 py-0.5 rounded-full border border-white/[0.06]" id="slider-val">30s</span>
+</div>
+<div class="relative flex items-center py-2">
+<input class="w-full h-1.5 bg-surface-variant rounded-full appearance-none cursor-pointer accent-secondary focus:outline-none" id="voice-slider" max="120" min="10" oninput="document.getElementById('slider-val').innerText = this.value + 's'" step="5" type="range" value="30">
+</div>
+<div class="flex items-start gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] mt-0.5 text-secondary">info</span>
+<p class="font-body-sm text-body-sm text-outline">Alarm will re-ring if voice memo is stopped prematurely</p>
+</div>
+</div>
+<div class="h-px bg-outline-variant/10 w-full"></div>
+<!-- Note Length Stepper -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<div>
+<span class="font-body-md text-body-md text-on-surface font-medium block">Enforce Min. Written Note Length</span>
+<span class="font-body-sm text-body-sm text-outline">Requires mindful transcription</span>
+</div>
+<div class="flex items-center bg-surface-container rounded-lg border border-white/[0.06] p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded text-on-surface hover:text-secondary active:bg-surface-bright transition-colors" id="step-dec">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="w-14 text-center font-label-md text-label-md text-secondary font-semibold" id="char-count">120</span>
+<button class="w-8 h-8 flex items-center justify-center rounded text-on-surface hover:text-secondary active:bg-surface-bright transition-colors" id="step-inc">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Live test counter widget -->
+<div class="bg-surface-container-lowest/80 rounded-lg p-3 border border-white/[0.03] space-y-2">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Live Test Counter</span>
+<span class="font-label-sm text-label-sm text-tertiary" id="char-live-indicator">0 / 120 chars</span>
+</div>
+<textarea class="w-full bg-surface-container-low border border-outline-variant/30 rounded-md p-2 font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:border-primary focus:ring-0 focus:outline-none resize-none" id="test-input" placeholder="Type a sample note here..." rows="2"></textarea>
+<div class="w-full bg-surface-variant h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-0 transition-all duration-150" id="char-progress"></div>
+</div>
+</div>
+</div>
+<div class="h-px bg-outline-variant/10 w-full"></div>
+<!-- Morning Enrichment Toggle -->
+<div class="flex items-center justify-between gap-4">
+<div class="space-y-0.5">
+<span class="font-body-md text-body-md text-on-surface font-medium block">Morning Note Enrichment</span>
+<p class="font-body-sm text-body-sm text-outline">Allow adding details to midnight voice memos during morning review</p>
+</div>
+<button aria-checked="true" class="relative inline-flex h-7 w-12 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-secondary-container transition-colors duration-200 ease-in-out focus:outline-none" role="switch" type="button">
+<span class="translate-x-5 pointer-events-none inline-block h-6 w-6 transform rounded-full bg-on-secondary shadow-md ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 2: Storage & Obsidian Markdown Sync -->
+<section class="space-y-3">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">sync_saved_locally</span>
+<h2 class="font-label-md text-label-md text-secondary tracking-wider font-semibold">Storage &amp; Obsidian Markdown Sync</h2>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/[0.04] space-y-4">
+<!-- Vault Directory -->
+<div class="space-y-1.5">
+<span class="font-body-md text-body-md text-on-surface font-medium block">Vault Directory</span>
+<div class="flex items-center gap-2 bg-surface-container-lowest p-2.5 rounded-lg border border-white/[0.04]">
+<span class="material-symbols-outlined text-outline text-[20px] flex-shrink-0">folder</span>
+<span class="font-body-sm text-body-sm text-tertiary-fixed-dim truncate">/storage/emulated/0/Documents/Obsidian/LucidDreams</span>
+<button class="ml-auto px-3 py-1 bg-surface-variant hover:bg-surface-bright rounded text-label-sm font-label-sm text-on-surface active:scale-95 transition-all">
+              Browse
+            </button>
+</div>
+</div>
+<div class="h-px bg-outline-variant/10 w-full"></div>
+<!-- Export Format -->
+<div class="flex items-center justify-between gap-4">
+<div class="space-y-0.5">
+<span class="font-body-md text-body-md text-on-surface font-medium block">Export Format</span>
+<p class="font-body-sm text-body-sm text-outline">.md (Obsidian Flavored Markdown with [[wikilinks]])</p>
+</div>
+<button aria-checked="true" class="relative inline-flex h-7 w-12 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-secondary-container transition-colors duration-200 ease-in-out focus:outline-none" role="switch" type="button">
+<span class="translate-x-5 pointer-events-none inline-block h-6 w-6 transform rounded-full bg-on-secondary shadow-md ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+<div class="h-px bg-outline-variant/10 w-full"></div>
+<!-- Auto-generate Wikilinks -->
+<div class="flex items-center justify-between gap-4">
+<div class="space-y-0.5">
+<span class="font-body-md text-body-md text-on-surface font-medium block">Auto-generate [[wikilinks]] from keywords</span>
+<p class="font-body-sm text-body-sm text-outline">Detects dream entities like recurrent places or dream characters</p>
+</div>
+<button aria-checked="true" class="relative inline-flex h-7 w-12 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-secondary-container transition-colors duration-200 ease-in-out focus:outline-none" role="switch" type="button">
+<span class="translate-x-5 pointer-events-none inline-block h-6 w-6 transform rounded-full bg-on-secondary shadow-md ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+<div class="h-px bg-outline-variant/10 w-full"></div>
+<!-- Audio Storage Location -->
+<div class="space-y-1">
+<span class="font-body-md text-body-md text-on-surface font-medium block">Audio Storage Location</span>
+<div class="flex items-center gap-2 text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">audio_file</span>
+<span class="">Store recordings as local .m4a alongside .md notes</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Nighttime & Display Ergonomics -->
+<section class="space-y-3">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">dark_mode</span>
+<h2 class="font-label-md text-label-md text-secondary tracking-wider font-semibold">Display &amp; Night Mode</h2>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/[0.04] space-y-4">
+<!-- Ultra-Low Luminance Mode -->
+<div class="flex items-center justify-between gap-4">
+<div class="space-y-0.5"><span class="font-body-md text-body-md text-on-surface font-medium block">Dim Screen at Night</span><p class="font-body-sm text-body-sm text-outline">Dims screen to 15% brightness when alarm rings</p></div>
+<button aria-checked="true" class="relative inline-flex h-7 w-12 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-secondary-container transition-colors duration-200 ease-in-out focus:outline-none" role="switch" type="button">
+<span class="translate-x-5 pointer-events-none inline-block h-6 w-6 transform rounded-full bg-on-secondary shadow-md ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+<div class="h-px bg-outline-variant/10 w-full"></div>
+<!-- Vibration Pattern -->
+<div class="flex justify-between items-center">
+<div>
+<span class="font-body-md text-body-md text-on-surface font-medium block">Night Vibration Pattern</span>
+<p class="font-body-sm text-body-sm text-outline">Gradual haptic ramp</p>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-3 py-1.5 rounded-lg border border-white/[0.06] text-on-surface text-label-md font-label-md">
+<span class="">Gentle Pulses</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: GitHub Actions & Continuous Build Status -->
+<section class="space-y-3 pb-4">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-secondary text-[18px]">terminal</span>
+<h2 class="font-label-md text-label-md text-secondary tracking-wider font-semibold">GitHub Actions &amp; Continuous Build</h2>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 border border-white/[0.04] space-y-3">
+<!-- Repository & Status -->
+<div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-outline block">Repository</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Lemomation/Lucid-Logger</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container border border-white/[0.06]">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">CI Workflow: Passing (v1.0.4)</span>
+</div>
+</div>
+<div class="h-px bg-outline-variant/10 w-full"></div>
+<!-- Build target -->
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-outline">Build target</span>
+<span class="font-label-md text-label-md text-tertiary">Native Android (.apk / .aab)</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Shared Components JSON Anchor) -->
+<!-- EXACT Destination Count: 5. Labels: ["Alarm", "Journal", "Graph", "Calendar", "Settings"]. Active: Settings -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 h-16 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20 dark:border-outline-variant/20">
+<!-- Alarm -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">alarm</span>
+<span class="text-label-sm font-label-sm">Alarm</span>
+</a>
+<!-- Journal -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_stories</span>
+<span class="text-label-sm font-label-sm">Journal</span>
+</a>
+<!-- Graph -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+<span class="text-label-sm font-label-sm">Graph</span>
+</a>
+<!-- Calendar -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span class="text-label-sm font-label-sm">Calendar</span>
+</a>
+<!-- Settings (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary hover:text-secondary dark:hover:text-secondary transition-colors duration-200 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">tune</span>
+<span class="text-label-sm font-label-sm font-semibold">Settings</span>
+</a>
+</nav>
+<!-- Interactive Logic for Stepper & Counter -->
+<script>
+    let noteThreshold = 120;
+    const charCountEl = document.getElementById('char-count');
+    const testInput = document.getElementById('test-input');
+    const liveIndicator = document.getElementById('char-live-indicator');
+    const progressEl = document.getElementById('char-progress');
+
+    document.getElementById('step-inc').addEventListener('click', () => {
+      if (noteThreshold < 500) {
+        noteThreshold += 10;
+        updateThresholdDisplay();
+      }
+    });
+
+    document.getElementById('step-dec').addEventListener('click', () => {
+      if (noteThreshold > 50) {
+        noteThreshold -= 10;
+        updateThresholdDisplay();
+      }
+    });
+
+    function updateThresholdDisplay() {
+      charCountEl.innerText = noteThreshold;
+      updateLiveProgress();
+    }
+
+    function updateLiveProgress() {
+      const len = testInput.value.length;
+      liveIndicator.innerText = `${len} / ${noteThreshold} chars`;
+      const pct = Math.min(100, Math.round((len / noteThreshold) * 100));
+      progressEl.style.width = pct + '%';
+      if (len >= noteThreshold) {
+        progressEl.className = 'bg-primary h-full transition-all duration-150';
+      } else {
+        progressEl.className = 'bg-secondary h-full transition-all duration-150';
+      }
+    }
+
+    testInput.addEventListener('input', updateLiveProgress);
+  </script>
+
+
+</body></html>
