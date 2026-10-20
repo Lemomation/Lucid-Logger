@@ -4,6 +4,7 @@ import kotlinx.serialization.Serializable
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.OffsetDateTime
+import java.util.Locale
 
 enum class DreamSource {
     VOICE,
@@ -29,6 +30,25 @@ data class DreamNote(
     val date: LocalDate get() = created.toLocalDate()
     val time: LocalTime get() = created.toLocalTime()
     val hasAudio: Boolean get() = !audioFile.isNullOrBlank()
+
+    fun displayTime(use24Hour: Boolean): String {
+        val localTime = time
+        return if (use24Hour) {
+            String.format(Locale.US, "%02d:%02d", localTime.hour, localTime.minute)
+        } else {
+            val hour12 = when (val hour = localTime.hour % 12) {
+                0 -> 12
+                else -> hour
+            }
+            String.format(
+                Locale.US,
+                "%d:%02d %s",
+                hour12,
+                localTime.minute,
+                if (localTime.hour < 12) "AM" else "PM",
+            )
+        }
+    }
 }
 
 @Serializable

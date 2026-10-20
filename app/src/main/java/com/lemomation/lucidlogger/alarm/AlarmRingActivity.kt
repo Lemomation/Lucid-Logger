@@ -71,10 +71,10 @@ class AlarmRingActivity : ComponentActivity() {
         }
     }
 
-    override fun onNewIntent(intent: Intent?) {
+    override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
-        intent?.getStringExtra(EXTRA_ALARM_ID)?.let { activeAlarmId = it }
+        intent.getStringExtra(EXTRA_ALARM_ID)?.let { activeAlarmId = it }
     }
 
     override fun onPause() {

@@ -41,6 +41,7 @@ class ExportManager(
             note.audioFile?.let { audio ->
                 root.findFile(audioFolderName)?.findFile(audio.substringAfterLast('/'))?.delete()
             }
+            Unit
         }
     }
 
