@@ -109,7 +109,7 @@ fun SettingsScreen(
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
-    fun update(transform: (AppSettings) -> AppSettings, morning: Boolean = false) {
+    fun update(morning: Boolean = false, transform: (AppSettings) -> AppSettings) {
         scope.launch {
             container.settings.update(transform)
             if (morning) {
@@ -274,7 +274,7 @@ fun SettingsScreen(
                     LucidDivider()
                     SettingRow("Morning reminder", "One quiet nudge if a memo has no details") {
                         LucidSwitch(settings.morningReminder) { checked ->
-                            update({ it.copy(morningReminder = checked) }, morning = true)
+                            update(morning = true) { it.copy(morningReminder = checked) }
                         }
                     }
                     if (settings.morningReminder) {
@@ -499,9 +499,9 @@ fun SettingsScreen(
             onDismiss = { showMorningTime = false },
             onConfirm = { hour, minute ->
                 showMorningTime = false
-                update({
+                update(morning = true) {
                     it.copy(morningReminderHour = hour, morningReminderMinute = minute)
-                }, morning = true)
+                }
             },
         )
     }
